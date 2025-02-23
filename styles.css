@@ -1,0 +1,303 @@
+.game-container {
+    width: 800px;
+    height: 600px;
+    border: 2px solid #000;
+    position: relative;
+    background: linear-gradient(180deg, #87CEEB 0%, #4AB3E6 100%);
+    overflow: hidden;
+    margin: 20px auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 20px;
+    animation: float linear infinite;
+}
+
+.cloud1 {
+    width: 100px;
+    height: 40px;
+    top: 50px;
+    animation-duration: 30s;
+}
+
+.cloud2 {
+    width: 80px;
+    height: 30px;
+    top: 100px;
+    animation-duration: 25s;
+}
+
+.cloud3 {
+    width: 120px;
+    height: 45px;
+    top: 150px;
+    animation-duration: 35s;
+}
+
+@keyframes float {
+    from { left: -150px; }
+    to { left: 100%; }
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    z-index: 100;
+    background: rgba(0,0,0,0.3);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+#player {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    left: 400px;
+    transform: none;
+    z-index: 100;
+}
+
+.fisherman {
+    width: 40px;
+    height: 60px;
+    background: #654321;
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    border-radius: 5px;
+}
+
+.fisherman::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ffd700;
+    border-radius: 50%;
+    top: -15px;
+    left: 10px;
+}
+
+.fishing-rod {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #5c3a24, #8b4513);
+    position: absolute;
+    top: 15px;
+    right: -5px;
+    transform: rotate(-45deg);
+    transform-origin: right center;
+    border-radius: 2px;
+}
+
+/* Rod handle */
+.fishing-rod::before {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    background: #5c3a24;
+    border-radius: 3px;
+    transform: rotate(45deg);
+}
+
+/* Rod tip */
+.fishing-rod::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -1px;
+    width: 8px;
+    height: 6px;
+    background: #5c3a24;
+    border-radius: 4px;
+    transform: rotate(-5deg);
+}
+
+/* Rod guides (line holders) */
+.fishing-rod-guides {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 40px;
+    height: 4px;
+    z-index: 101;
+}
+
+.rod-guide {
+    position: absolute;
+    width: 4px;
+    height: 6px;
+    background: #333;
+    border-radius: 1px;
+    transform: rotate(-45deg);
+}
+
+.rod-guide:nth-child(1) { right: 5px; }
+.rod-guide:nth-child(2) { right: 20px; }
+.rod-guide:nth-child(3) { right: 35px; }
+
+#hook {
+    width: 2px;
+    height: 100px;
+    background: transparent;
+    position: absolute;
+    top: 70px;
+    left: 450px;
+    transform: none;
+    z-index: 100;
+}
+
+/* Add fishing line */
+#hook::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 1px;
+    height: calc(100% + 30px);
+    background: rgba(255, 255, 255, 0.4);
+    transform-origin: top;
+}
+
+.hook-point {
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    bottom: -2px;
+    left: -3px;
+    transform: rotate(45deg);
+    background: transparent;
+}
+
+/* Create the hook shape */
+.hook-point::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background: #808080;
+    border-radius: 1px;
+    transform: rotate(-45deg);
+    transform-origin: top;
+}
+
+.hook-point::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #808080;
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+    transform: rotate(45deg) translate(2px, 2px);
+}
+
+#ocean {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(180deg, #0077be 0%, #005a8c 100%);
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 20px;
+    background: rgba(255,255,255,0.2);
+    animation: wave linear infinite;
+}
+
+.wave1 {
+    top: 0;
+    animation-duration: 5s;
+}
+
+.wave2 {
+    top: 10px;
+    animation-duration: 7s;
+    opacity: 0.6;
+}
+
+@keyframes wave {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.seaweed {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    background: #2d5a27;
+    border-radius: 20px 20px 0 0;
+    animation: sway ease-in-out infinite alternate;
+}
+
+.seaweed1 { height: 80px; left: 10%; animation-duration: 3s; }
+.seaweed2 { height: 100px; left: 50%; animation-duration: 4s; }
+.seaweed3 { height: 70px; left: 80%; animation-duration: 3.5s; }
+
+@keyframes sway {
+    from { transform: rotate(-5deg); }
+    to { transform: rotate(5deg); }
+}
+
+.fish {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    background: linear-gradient(45deg, #ff8c00, #ffd700);
+    border-radius: 20px;
+    transition: all 0.1s;
+    transform-origin: center;
+    transform: scaleX(-1);
+    z-index: 75;
+}
+
+.fish::before {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 5px;
+    width: 15px;
+    height: 10px;
+    background: #ffd700;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+}
+
+.fish::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+}
+
+.fish.caught {
+    transform: scaleX(-1) scale(0.8);
+} 
